@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScript Basics</title>
+</head>
+
+<body>
+	<script type ="text/javascript">
+		var hotdogs = window.prompt("How many hotdogs? ");
+		var fries = window.prompt('How many fries?');
+		var sodas = window.prompt('sodas');
+		
+		function round(x) {
+  			return Number.parseFloat(x).toFixed(2);
+		}
+		
+		document.write("<h1>Welcome to Joe's Hotdogs!</h1>");
+		document.write("<h1>Your Order</h1>");
+		
+		document.write(' #Hotdogs: ' + hotdogs + ' at $3.25 is $' + round(hotdogs*3.25) + '<br>');
+		document.write(' #Fries: ' + fries + ' at $2.00 is $' + round(fries*2.00) + '<br>');
+		document.write(' #Sodas: ' + sodas + ' at $1.50 is $' + round(sodas*1.50) + '<br>');
+		
+		var orderTotal = 3.25*hotdogs + 2.00*fries + 1.50*sodas;
+		
+		var subtotal = 0;
+		var mealsTax = 0;
+		var fullTotal = 0;
+		
+		if (orderTotal > 19.99) {
+			document.write('You are qualified for our 10% discount! <br>');
+			
+			subtotal = round(orderTotal*0.9);
+			mealsTax = round(subtotal*.0625);
+			fullTotal = Number(subtotal) + Number(mealsTax);
+			
+			document.write('subtotal: $' + subtotal +'<br>');
+			document.write('Meals Tax: $' + mealsTax +'<br>');
+			document.write('Total: $' + fullTotal);
+			
+		} else {
+			document.write('You are not qualified for out 10% discount! <br>')
+			
+			subtotal = orderTotal;
+			mealsTax = round(subtotal*.0625);
+			fullTotal = Number(subtotal) + Number(mealsTax);
+			
+			document.write('subtotal: $' + subtotal +'<br>');
+			document.write('Meals Tax: $' + mealsTax +'<br>');
+			document.write('Total: $' + fullTotal);
+			
+		}
+	</script>
+	
+	
+	
+</body>
+	
+
+</html>
